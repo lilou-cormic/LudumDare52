@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Images/Kenney/Pixel Platformer Farm Expansion/Tilemap/Corn2.tres" type="Texture" id=1]
+[ext_resource path="res://Images/Kenney/Pixel Platformer Farm Expansion/Tilemap/Corn1.tres" type="Texture" id=2]
+[ext_resource path="res://Images/Kenney/Pixel Platformer Farm Expansion/Tilemap/CornDead.tres" type="Texture" id=3]
+[ext_resource path="res://Images/Kenney/Pixel Platformer Farm Expansion/Tilemap/Corn3.tres" type="Texture" id=4]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Corn.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/CropDef.cs" type="Script" id=6]
+
+[resource]
+resource_name = "Corn"
+script = ExtResource( 6 )
+CropType = 4
+SeedCost = 150
+SellPrice = 50
+GrowthDays = 14
+RegrowthDays = 4
+Season = 6
+Stage1Sprite = ExtResource( 2 )
+Stage2Sprite = ExtResource( 1 )
+Stage3Sprite = ExtResource( 4 )
+DeadSprite = ExtResource( 3 )
+Icon = ExtResource( 5 )

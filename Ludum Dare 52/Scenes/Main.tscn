@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number1.tres" type="Texture" id=3]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Wheat.png" type="Texture" id=4]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Pumpkin.png" type="Texture" id=5]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Corn.png" type="Texture" id=6]
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Tomato.png" type="Texture" id=7]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number5.tres" type="Texture" id=8]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number0.tres" type="Texture" id=9]
+[ext_resource path="res://Prefabs/GameManager.tscn" type="PackedScene" id=10]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource( 10 )]
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 576.0
+
+[node name="Buttons" type="Control" parent="UI"]
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TurnipButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 128.0
+margin_bottom = 178.0
+
+[node name="WheatButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 192.0
+margin_bottom = 242.0
+icon = ExtResource( 4 )
+CropType = 1
+
+[node name="Digit2" parent="UI/Buttons/WheatButton" index="1"]
+texture = ExtResource( 3 )
+
+[node name="TomatoButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 256.0
+margin_bottom = 306.0
+icon = ExtResource( 7 )
+CropType = 2
+
+[node name="Digit2" parent="UI/Buttons/TomatoButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="CornButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 320.0
+margin_bottom = 370.0
+icon = ExtResource( 6 )
+CropType = 3
+
+[node name="Digit2" parent="UI/Buttons/CornButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="Digit3" type="Sprite" parent="UI/Buttons/CornButton"]
+position = Vector2( 19, 40 )
+texture = ExtResource( 3 )
+
+[node name="CarrotButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 384.0
+margin_bottom = 434.0
+icon = ExtResource( 2 )
+CropType = 4
+
+[node name="Digit2" parent="UI/Buttons/CarrotButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="PumpkinButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+margin_top = 448.0
+margin_bottom = 498.0
+icon = ExtResource( 5 )
+CropType = 5
+
+[node name="Digit2" parent="UI/Buttons/PumpkinButton" index="1"]
+texture = ExtResource( 9 )
+
+[node name="Digit3" type="Sprite" parent="UI/Buttons/PumpkinButton"]
+position = Vector2( 19, 40 )
+texture = ExtResource( 3 )
+
+[editable path="UI/Buttons/TurnipButton"]
+[editable path="UI/Buttons/WheatButton"]
+[editable path="UI/Buttons/TomatoButton"]
+[editable path="UI/Buttons/CornButton"]
+[editable path="UI/Buttons/CarrotButton"]
+[editable path="UI/Buttons/PumpkinButton"]

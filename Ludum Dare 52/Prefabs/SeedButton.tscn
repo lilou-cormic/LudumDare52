@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Turnip.png" type="Texture" id=1]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number2.tres" type="Texture" id=2]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number0.tres" type="Texture" id=3]
+[ext_resource path="res://Scripts/SeedButton.cs" type="Script" id=4]
+
+[node name="SeedButton" type="Button"]
+margin_right = 50.0
+margin_bottom = 50.0
+toggle_mode = true
+icon = ExtResource( 1 )
+icon_align = 1
+expand_icon = true
+script = ExtResource( 4 )
+
+[node name="Digit1" type="Sprite" parent="."]
+position = Vector2( 41, 40 )
+texture = ExtResource( 3 )
+
+[node name="Digit2" type="Sprite" parent="."]
+position = Vector2( 30, 40 )
+texture = ExtResource( 2 )
