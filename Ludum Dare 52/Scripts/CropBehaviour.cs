@@ -54,5 +54,10 @@ public class CropBehaviour : Sprite
         }
     }
 
+    public void Plant()
+    {
+        _crop.Plant(Crops.GetCropDef(GameManager.CurrentCropType));
+    }
+
     #endregion
 }

@@ -1,5 +1,4 @@
-﻿using PurpleCable;
-using System;
+﻿using System;
 
 public class Crop
 {
@@ -58,11 +57,16 @@ public class Crop
 
     public void Plant(CropDef cropDef)
     {
-        if (cropDef != null)
+        if (State == CropState.Empty && cropDef != null)
         {
-            Def = cropDef;
-            DaysToGrow = cropDef.GrowthDays;
-            State = CropState.Growing;
+            if (cropDef.SeedCost <= GameManager.Money)
+            {
+                GameManager.ChangeMoney(-cropDef.SeedCost);
+
+                Def = cropDef;
+                DaysToGrow = cropDef.GrowthDays;
+                State = CropState.Growing;
+            }
         }
     }
 
@@ -81,7 +85,7 @@ public class Crop
     {
         if (State == CropState.Ready)
         {
-            ScoreManager.AddPoints(Def.SellPrice);
+            GameManager.ChangeMoney(Def.SellPrice);
 
             if (Def.CanRegrow)
             {

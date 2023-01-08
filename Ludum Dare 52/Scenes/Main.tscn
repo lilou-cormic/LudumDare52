@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
@@ -10,80 +10,345 @@
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number5.tres" type="Texture" id=8]
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number0.tres" type="Texture" id=9]
 [ext_resource path="res://Prefabs/GameManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Plot.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/MoneyDisplay.cs" type="Script" id=12]
+[ext_resource path="res://Fonts/KenneyPixelNumbers.fnt" type="BitmapFont" id=13]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Coin.tres" type="Texture" id=14]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource( 10 )]
 
-[node name="UI" type="Control" parent="."]
-margin_right = 1024.0
-margin_bottom = 576.0
+[node name="Garden" type="Node2D" parent="."]
 
-[node name="Buttons" type="Control" parent="UI"]
+[node name="Plot6" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 32 )
+
+[node name="Plot7" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 32 )
+
+[node name="Plot8" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 32 )
+
+[node name="Plot9" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 32 )
+
+[node name="Plot10" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 96 )
+
+[node name="Plot11" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 96 )
+
+[node name="Plot12" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 96 )
+
+[node name="Plot1" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 32 )
+
+[node name="Plot2" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 32 )
+
+[node name="Plot3" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 32 )
+
+[node name="Plot4" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 32 )
+
+[node name="Plot5" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 32 )
+
+[node name="Plot13" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 96 )
+
+[node name="Plot14" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 96 )
+
+[node name="Plot15" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 96 )
+
+[node name="Plot16" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 96 )
+
+[node name="Plot17" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 96 )
+
+[node name="Plot18" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 96 )
+
+[node name="Plot19" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 160 )
+
+[node name="Plot20" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 160 )
+
+[node name="Plot21" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 160 )
+
+[node name="Plot22" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 160 )
+
+[node name="Plot23" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 160 )
+
+[node name="Plot24" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 160 )
+
+[node name="Plot25" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 160 )
+
+[node name="Plot26" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 160 )
+
+[node name="Plot27" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 160 )
+
+[node name="Plot28" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 224 )
+
+[node name="Plot29" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 224 )
+
+[node name="Plot30" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 224 )
+
+[node name="Plot31" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 224 )
+
+[node name="Plot32" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 224 )
+
+[node name="Plot33" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 224 )
+
+[node name="Plot34" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 224 )
+
+[node name="Plot35" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 224 )
+
+[node name="Plot36" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 224 )
+
+[node name="Plot37" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 288 )
+
+[node name="Plot38" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 288 )
+
+[node name="Plot39" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 288 )
+
+[node name="Plot40" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 288 )
+
+[node name="Plot41" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 288 )
+
+[node name="Plot42" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 288 )
+
+[node name="Plot43" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 288 )
+
+[node name="Plot44" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 288 )
+
+[node name="Plot45" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 288 )
+
+[node name="Plot46" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 352 )
+
+[node name="Plot47" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 352 )
+
+[node name="Plot48" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 352 )
+
+[node name="Plot49" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 352 )
+
+[node name="Plot50" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 352 )
+
+[node name="Plot51" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 352 )
+
+[node name="Plot52" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 352 )
+
+[node name="Plot53" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 352 )
+
+[node name="Plot54" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 352 )
+
+[node name="Plot55" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 416 )
+
+[node name="Plot56" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 416 )
+
+[node name="Plot57" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 416 )
+
+[node name="Plot58" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 416 )
+
+[node name="Plot59" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 416 )
+
+[node name="Plot60" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 416 )
+
+[node name="Plot61" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 416 )
+
+[node name="Plot62" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 416 )
+
+[node name="Plot63" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 416 )
+
+[node name="Plot64" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 480 )
+
+[node name="Plot65" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 480 )
+
+[node name="Plot66" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 480 )
+
+[node name="Plot67" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 480 )
+
+[node name="Plot68" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 480 )
+
+[node name="Plot69" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 480 )
+
+[node name="Plot70" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 480 )
+
+[node name="Plot71" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 480 )
+
+[node name="Plot72" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 480 )
+
+[node name="Plot73" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 544 )
+
+[node name="Plot74" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 544 )
+
+[node name="Plot75" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 544 )
+
+[node name="Plot76" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 544 )
+
+[node name="Plot77" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 544 )
+
+[node name="Plot78" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 352, 544 )
+
+[node name="Plot79" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 416, 544 )
+
+[node name="Plot80" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 480, 544 )
+
+[node name="Plot81" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 544, 544 )
+
+[node name="UI" type="Control" parent="."]
 anchor_left = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 768.0
+margin_right = 1024.0
+margin_bottom = 576.0
 
-[node name="TurnipButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="TurnipButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 128.0
 margin_bottom = 178.0
+CropType = 1
 
-[node name="WheatButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="WheatButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 192.0
 margin_bottom = 242.0
 icon = ExtResource( 4 )
-CropType = 1
+CropType = 2
 
-[node name="Digit2" parent="UI/Buttons/WheatButton" index="1"]
+[node name="Digit2" parent="UI/WheatButton" index="1"]
 texture = ExtResource( 3 )
 
-[node name="TomatoButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="TomatoButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 256.0
 margin_bottom = 306.0
 icon = ExtResource( 7 )
-CropType = 2
+CropType = 3
 
-[node name="Digit2" parent="UI/Buttons/TomatoButton" index="1"]
+[node name="Digit2" parent="UI/TomatoButton" index="1"]
 texture = ExtResource( 8 )
 
-[node name="CornButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="CornButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 320.0
 margin_bottom = 370.0
 icon = ExtResource( 6 )
-CropType = 3
+CropType = 4
 
-[node name="Digit2" parent="UI/Buttons/CornButton" index="1"]
+[node name="Digit2" parent="UI/CornButton" index="1"]
 texture = ExtResource( 8 )
 
-[node name="Digit3" type="Sprite" parent="UI/Buttons/CornButton"]
+[node name="Digit3" type="Sprite" parent="UI/CornButton"]
 position = Vector2( 19, 40 )
 texture = ExtResource( 3 )
 
-[node name="CarrotButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="CarrotButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 384.0
 margin_bottom = 434.0
 icon = ExtResource( 2 )
-CropType = 4
+CropType = 5
 
-[node name="Digit2" parent="UI/Buttons/CarrotButton" index="1"]
+[node name="Digit2" parent="UI/CarrotButton" index="1"]
 texture = ExtResource( 8 )
 
-[node name="PumpkinButton" parent="UI/Buttons" instance=ExtResource( 1 )]
+[node name="PumpkinButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 448.0
 margin_bottom = 498.0
 icon = ExtResource( 5 )
-CropType = 5
+CropType = 6
 
-[node name="Digit2" parent="UI/Buttons/PumpkinButton" index="1"]
+[node name="Digit2" parent="UI/PumpkinButton" index="1"]
 texture = ExtResource( 9 )
 
-[node name="Digit3" type="Sprite" parent="UI/Buttons/PumpkinButton"]
+[node name="Digit3" type="Sprite" parent="UI/PumpkinButton"]
 position = Vector2( 19, 40 )
 texture = ExtResource( 3 )
 
-[editable path="UI/Buttons/TurnipButton"]
-[editable path="UI/Buttons/WheatButton"]
-[editable path="UI/Buttons/TomatoButton"]
-[editable path="UI/Buttons/CornButton"]
-[editable path="UI/Buttons/CarrotButton"]
-[editable path="UI/Buttons/PumpkinButton"]
+[node name="Node2D" type="Node2D" parent="UI"]
+position = Vector2( 36, 32 )
+scale = Vector2( 2, 2 )
+
+[node name="MoneyText" type="Label" parent="UI/Node2D"]
+margin_right = 128.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 13 )
+text = "100"
+script = ExtResource( 12 )
+
+[node name="Coin" type="Sprite" parent="UI/Node2D"]
+position = Vector2( -18, 0 )
+texture = ExtResource( 14 )
+centered = false
+
+[editable path="UI/TurnipButton"]
+[editable path="UI/WheatButton"]
+[editable path="UI/TomatoButton"]
+[editable path="UI/CornButton"]
+[editable path="UI/CarrotButton"]
+[editable path="UI/PumpkinButton"]
