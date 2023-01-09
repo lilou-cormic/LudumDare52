@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/Kenney Bold Large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Credits.cs" type="Script" id=3]
+[ext_resource path="res://Fonts/Bauhaus 93 Normal.tres" type="DynamicFont" id=4]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="CreditsLabel" type="Label" parent="."]
+anchor_top = 0.079
+anchor_right = 1.0
+anchor_bottom = 0.249
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="CreditsText" type="Label" parent="."]
+anchor_left = 0.05
+anchor_top = 0.262
+anchor_right = 0.95
+anchor_bottom = 0.673
+custom_fonts/font = ExtResource( 4 )
+text = "Game created by lilou_cormic for Ludum Dare 52 (Jan. 2023)
+
+Music -  Retro Indie Josh (retroindiejosh.itch.io)
+Sounds - Kenney (kenney.nl)
+Vegetable icons - Jordizzle (jordizzle.itch.io)
+Other art assets - Kenney (kenney.nl)"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.675
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.0400085
+
+[node name="BackButton" type="Button" parent="CenterContainer"]
+margin_left = 473.0
+margin_top = 78.0
+margin_right = 549.0
+margin_bottom = 108.0
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/BackButton" to="." method="OnBackButtonPressed"]
