@@ -17,22 +17,22 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="Coin" type="Sprite" parent="."]
-position = Vector2( 40, 20 )
+position = Vector2( 44, 20 )
 texture = ExtResource( 2 )
 
 [node name="SellDigit1" type="Sprite" parent="."]
-position = Vector2( 53, 20 )
+position = Vector2( 57, 20 )
 texture = ExtResource( 6 )
 
 [node name="SellDigit2" type="Sprite" parent="."]
-position = Vector2( 64, 20 )
+position = Vector2( 68, 20 )
 texture = ExtResource( 1 )
 
 [node name="Sun" type="Sprite" parent="."]
-position = Vector2( 92, 20 )
+position = Vector2( 100, 20 )
 scale = Vector2( 0.175, 0.175 )
 texture = ExtResource( 4 )
 
 [node name="GrowthDigit1" type="Sprite" parent="."]
-position = Vector2( 106, 20 )
+position = Vector2( 114, 20 )
 texture = ExtResource( 5 )

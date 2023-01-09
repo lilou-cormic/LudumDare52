@@ -22,6 +22,8 @@ public class SoilBehaviour : Sprite
     {
         _HighlightSprite = GetChild<Sprite>(0);
         _HighlightSprite.Visible = false;
+
+        GameManager.DayPassed += DryUp;
     }
 
     #endregion
@@ -38,7 +40,7 @@ public class SoilBehaviour : Sprite
         Texture = WetSoilSprite;
     }
 
-    public void DryUp()
+    private void DryUp()
     {
         Texture = DrySoilSprite;
     }

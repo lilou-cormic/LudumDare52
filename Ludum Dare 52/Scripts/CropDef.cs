@@ -24,5 +24,7 @@ public class CropDef : Resource
 
     [Export] public Texture Icon;
 
+    [Export] public Texture Cursor;
+
     public bool CanRegrow => RegrowthDays > 0;
 }

@@ -18,10 +18,17 @@ public class SeedButton : Button
         SetEnabled();
     }
 
+    public override void _Pressed()
+    {
+        GameManager.CurrentToolType = ToolType.SeedBag;
+    }
+
     public override void _Toggled(bool buttonPressed)
     {
         if (buttonPressed)
+        {
             GameManager.CurrentCropType = CropType;
+        }
 
         SetPressed();
     }

@@ -15,7 +15,26 @@ public class GameManager : Node2D
             if (_CurrentCropType != value)
             {
                 _CurrentCropType = value;
+
+                SetCursor();
                 CurrentCropTypeChanged?.Invoke();
+            }
+        }
+    }
+
+    public static ToolType _CurrentToolType;
+    public static ToolType CurrentToolType
+    {
+        get => _CurrentToolType;
+
+        set
+        {
+            if (_CurrentToolType != value)
+            {
+                _CurrentToolType = value;
+
+                SetCursor();
+                CurrentToolTypeChanged?.Invoke();
             }
         }
     }
@@ -36,6 +55,8 @@ public class GameManager : Node2D
 
     public static event Action CurrentCropTypeChanged;
 
+    public static event Action CurrentToolTypeChanged;
+
     public static event Action MoneyChanged;
 
     public static event Action DayPassed;
@@ -47,10 +68,26 @@ public class GameManager : Node2D
     public override void _Ready()
     {
         CurrentCropType = CropType.Turnip;
+        CurrentToolType = ToolType.SeedBag;
+
+        SetCursor();
     }
     #endregion
 
     #region Methods
+
+    private static void SetCursor()
+    {
+        switch (CurrentToolType)
+        {
+            case ToolType.SeedBag:
+                Input.SetCustomMouseCursor(Crops.GetCropDef(CurrentCropType).Cursor);
+                break;
+            default:
+                Input.SetCustomMouseCursor(Tools.GetToolDef(CurrentToolType)?.Cursor);
+                break;
+        }
+    }
 
     public static void ChangeMoney(int amount)
     {

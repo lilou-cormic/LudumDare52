@@ -8,6 +8,8 @@ public class CropBehaviour : Sprite
 
     [Export] AudioStream PlantSound;
 
+    [Export] AudioStream WateringSound;
+
     [Export] AudioStream HarvestSound;
 
     [Export] AudioStream ActionDeniedSound;
@@ -77,6 +79,8 @@ public class CropBehaviour : Sprite
                 Texture = _crop.Def.DeadSprite;
                 break;
         }
+
+        _animations.ForEach(animation => animation.Start());
     }
 
     public void PlantOrHarvest()
@@ -96,7 +100,7 @@ public class CropBehaviour : Sprite
                 return;
             }
         }
-        else
+        else if (_crop.CanPlant)
         {
             CropDef cropDef = Crops.GetCropDef(GameManager.CurrentCropType);
 
@@ -115,6 +119,16 @@ public class CropBehaviour : Sprite
 
         _soundPlayer.Stream = ActionDeniedSound;
         _soundPlayer.Play();
+    }
+
+    public void Water()
+    {
+        _soundPlayer.Stream = WateringSound;
+        _soundPlayer.Play();
+
+        _crop.Water();
+
+        _animations.ForEach(animation => animation.Start());
     }
 
     public override void _PhysicsProcess(float delta)

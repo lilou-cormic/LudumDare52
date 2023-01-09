@@ -44,7 +44,13 @@ public class Crop
         }
     }
 
-    public bool CanHarvest => State == CropState.Ready || State == CropState.Dead;
+    public bool IsWatered = false;
+
+    public bool CanPlant => State == CropState.Empty && GameManager.CurrentToolType == ToolType.SeedBag;
+
+    public bool CanGrow => IsWatered && (State == CropState.Growing || State == CropState.Regrowing || State == CropState.Ready);
+
+    public bool CanHarvest => State == CropState.Ready || GameManager.CurrentToolType == ToolType.Hoe;
 
     #endregion
 
@@ -67,7 +73,7 @@ public class Crop
 
     public void Plant(CropDef cropDef)
     {
-        if (State == CropState.Empty && cropDef != null)
+        if (CanPlant && cropDef != null)
         {
             if (cropDef.Season.HasFlag(GameManager.Season) && cropDef.SeedCost <= GameManager.Money)
             {
@@ -82,7 +88,7 @@ public class Crop
 
     public void Grow()
     {
-        if (State == CropState.Growing || State == CropState.Regrowing || State == CropState.Ready)
+        if (CanGrow)
         {
             Age++;
 
@@ -123,6 +129,11 @@ public class Crop
         State = CropState.Dead;
     }
 
+    public void Water()
+    {
+        IsWatered = true;
+    }
+
     public void OnDayPassed()
     {
         if (State != CropState.Empty)
@@ -132,6 +143,8 @@ public class Crop
             else
                 Die();
         }
+
+        IsWatered = false;
     }
 
     #endregion

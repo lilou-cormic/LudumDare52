@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/Kenney Bold Large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Credits.cs" type="Script" id=3]
+[ext_resource path="res://Prefabs/VolumeControl.tscn" type="PackedScene" id=4]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="OptionsLabel" type="Label" parent="."]
+anchor_top = 0.079
+anchor_right = 1.0
+anchor_bottom = 0.249
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+align = 1
+valign = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_top = 0.33
+anchor_right = 1.0
+anchor_bottom = 0.67
+margin_top = -0.256012
+margin_bottom = 0.0799866
+
+[node name="VolumeControl" parent="CenterContainer2" instance=ExtResource( 4 )]
+margin_left = 512.0
+margin_top = 98.0
+margin_right = 512.0
+margin_bottom = 98.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.675
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.0400085
+
+[node name="BackButton" type="Button" parent="CenterContainer"]
+margin_left = 473.0
+margin_top = 78.0
+margin_right = 549.0
+margin_bottom = 108.0
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/BackButton" to="." method="OnBackButtonPressed"]

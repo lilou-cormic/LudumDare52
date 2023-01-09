@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ToolDef.cs" type="Script" id=1]
+[ext_resource path="res://Images/Hand.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ToolType = 0
+Icon = ExtResource( 2 )
+Cursor = ExtResource( 2 )

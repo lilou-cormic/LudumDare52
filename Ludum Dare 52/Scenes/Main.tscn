@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
@@ -39,6 +39,10 @@
 [ext_resource path="res://Music/fall.ogg" type="AudioStream" id=37]
 [ext_resource path="res://Music/summer.ogg" type="AudioStream" id=38]
 [ext_resource path="res://Scripts/SeasonMusicPlayer.cs" type="Script" id=39]
+[ext_resource path="res://Images/jordizzle/farm assets/Tools/Hoe.png" type="Texture" id=40]
+[ext_resource path="res://Prefabs/ToolButton.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Images/jordizzle/farm assets/Tools/Watering Can.png" type="Texture" id=42]
+[ext_resource path="res://Images/Hand.png" type="Texture" id=43]
 
 [node name="Main" type="Node2D"]
 
@@ -563,7 +567,7 @@ position = Vector2( 544, 352 )
 anchor_left = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 800.0
+margin_left = 775.0
 margin_right = 1024.0
 margin_bottom = 576.0
 
@@ -588,10 +592,12 @@ SummerSprite = ExtResource( 26 )
 FallSprite = ExtResource( 25 )
 
 [node name="EndDayButton" type="Button" parent="UI"]
-margin_left = 128.0
-margin_top = 8.0
-margin_right = 178.0
-margin_bottom = 58.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -66.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 66.0
 icon = ExtResource( 28 )
 expand_icon = true
 
@@ -613,186 +619,218 @@ position = Vector2( -18, 0 )
 texture = ExtResource( 14 )
 centered = false
 
-[node name="TurnipButton" parent="UI" instance=ExtResource( 1 )]
+[node name="ToolButtons" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_top = 128.0
-margin_bottom = 178.0
+margin_bottom = -381.0
+
+[node name="SeedBagButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+margin_left = 0.0
+margin_right = 50.0
+ToolType = 1
+
+[node name="WateringCanButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+margin_left = 64.0
+margin_right = 114.0
+icon = ExtResource( 42 )
+ToolType = 2
+
+[node name="NoneButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+margin_left = 128.0
+margin_right = 178.0
+icon = ExtResource( 43 )
+
+[node name="HoeButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+margin_left = 192.0
+margin_right = 242.0
+icon = ExtResource( 40 )
+ToolType = 3
+
+[node name="SeedButtons" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 192.0
+margin_bottom = -14.0
+
+[node name="TurnipButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
 CropType = 1
 
-[node name="TurnipDescription" parent="UI" instance=ExtResource( 31 )]
+[node name="TurnipDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 5.0
+margin_right = 218.0
+margin_bottom = 45.0
+
+[node name="WheatButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
+margin_top = 64.0
+margin_bottom = 114.0
+icon = ExtResource( 4 )
+CropType = 2
+
+[node name="Digit2" parent="UI/SeedButtons/WheatButton" index="1"]
+texture = ExtResource( 3 )
+
+[node name="WheatDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 69.0
+margin_right = 218.0
+margin_bottom = 109.0
+
+[node name="Season" parent="UI/SeedButtons/WheatDescription" index="0"]
+texture = ExtResource( 26 )
+
+[node name="SellDigit1" parent="UI/SeedButtons/WheatDescription" index="2"]
+texture = ExtResource( 29 )
+
+[node name="TomatoButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
+margin_top = 128.0
+margin_bottom = 178.0
+icon = ExtResource( 7 )
+CropType = 3
+
+[node name="Digit2" parent="UI/SeedButtons/TomatoButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="TomatoDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
 margin_left = 64.0
 margin_top = 133.0
 margin_right = 218.0
 margin_bottom = 173.0
 
-[node name="WheatButton" parent="UI" instance=ExtResource( 1 )]
-margin_top = 192.0
-margin_bottom = 242.0
-icon = ExtResource( 4 )
-CropType = 2
+[node name="Season" parent="UI/SeedButtons/TomatoDescription" index="0"]
+texture = ExtResource( 26 )
 
-[node name="Digit2" parent="UI/WheatButton" index="1"]
+[node name="SellDigit1" parent="UI/SeedButtons/TomatoDescription" index="2"]
+texture = ExtResource( 33 )
+
+[node name="SellDigit2" parent="UI/SeedButtons/TomatoDescription" index="3"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/SeedButtons/TomatoDescription" index="5"]
 texture = ExtResource( 3 )
 
-[node name="WheatDescription" parent="UI" instance=ExtResource( 31 )]
+[node name="GrowthDigit2" type="Sprite" parent="UI/SeedButtons/TomatoDescription"]
+position = Vector2( 125, 20 )
+texture = ExtResource( 3 )
+
+[node name="Slash" type="Sprite" parent="UI/SeedButtons/TomatoDescription"]
+position = Vector2( 139, 20 )
+texture = ExtResource( 32 )
+
+[node name="RegrowthDigit1" type="Sprite" parent="UI/SeedButtons/TomatoDescription"]
+position = Vector2( 153, 20 )
+texture = ExtResource( 30 )
+
+[node name="CornButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
+margin_top = 192.0
+margin_bottom = 242.0
+icon = ExtResource( 6 )
+CropType = 4
+
+[node name="Digit2" parent="UI/SeedButtons/CornButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="Digit3" type="Sprite" parent="UI/SeedButtons/CornButton"]
+position = Vector2( 19, 40 )
+texture = ExtResource( 3 )
+
+[node name="CornDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
 margin_left = 64.0
 margin_top = 197.0
 margin_right = 218.0
 margin_bottom = 237.0
 
-[node name="Season" parent="UI/WheatDescription" index="0"]
+[node name="Season" parent="UI/SeedButtons/CornDescription" index="0"]
 texture = ExtResource( 26 )
 
-[node name="SellDigit1" parent="UI/WheatDescription" index="2"]
-texture = ExtResource( 29 )
-
-[node name="TomatoButton" parent="UI" instance=ExtResource( 1 )]
-margin_top = 256.0
-margin_bottom = 306.0
-icon = ExtResource( 7 )
-CropType = 3
-
-[node name="Digit2" parent="UI/TomatoButton" index="1"]
+[node name="SellDigit1" parent="UI/SeedButtons/CornDescription" index="2"]
 texture = ExtResource( 8 )
 
-[node name="TomatoDescription" parent="UI" instance=ExtResource( 31 )]
+[node name="SellDigit2" parent="UI/SeedButtons/CornDescription" index="3"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/SeedButtons/CornDescription" index="5"]
+texture = ExtResource( 3 )
+
+[node name="Season2" type="Sprite" parent="UI/SeedButtons/CornDescription"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+
+[node name="GrowthDigit2" type="Sprite" parent="UI/SeedButtons/CornDescription"]
+position = Vector2( 125, 20 )
+texture = ExtResource( 30 )
+
+[node name="Slash" type="Sprite" parent="UI/SeedButtons/CornDescription"]
+position = Vector2( 139, 20 )
+texture = ExtResource( 32 )
+
+[node name="RegrowthDigit1" type="Sprite" parent="UI/SeedButtons/CornDescription"]
+position = Vector2( 153, 20 )
+texture = ExtResource( 30 )
+
+[node name="CarrotButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
+margin_top = 256.0
+margin_bottom = 306.0
+icon = ExtResource( 2 )
+CropType = 5
+
+[node name="Digit2" parent="UI/SeedButtons/CarrotButton" index="1"]
+texture = ExtResource( 8 )
+
+[node name="CarrotDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
 margin_left = 64.0
 margin_top = 261.0
 margin_right = 218.0
 margin_bottom = 301.0
 
-[node name="Season" parent="UI/TomatoDescription" index="0"]
-texture = ExtResource( 26 )
+[node name="Season" parent="UI/SeedButtons/CarrotDescription" index="0"]
+texture = ExtResource( 25 )
 
-[node name="SellDigit1" parent="UI/TomatoDescription" index="2"]
-texture = ExtResource( 33 )
+[node name="SellDigit1" parent="UI/SeedButtons/CarrotDescription" index="2"]
+texture = ExtResource( 34 )
 
-[node name="SellDigit2" parent="UI/TomatoDescription" index="3"]
+[node name="SellDigit2" parent="UI/SeedButtons/CarrotDescription" index="3"]
 texture = ExtResource( 9 )
 
-[node name="GrowthDigit1" parent="UI/TomatoDescription" index="5"]
-texture = ExtResource( 3 )
+[node name="GrowthDigit1" parent="UI/SeedButtons/CarrotDescription" index="5"]
+texture = ExtResource( 33 )
 
-[node name="GrowthDigit2" type="Sprite" parent="UI/TomatoDescription"]
-position = Vector2( 117, 20 )
-texture = ExtResource( 3 )
-
-[node name="Slash" type="Sprite" parent="UI/TomatoDescription"]
-position = Vector2( 131, 20 )
-texture = ExtResource( 32 )
-
-[node name="RegrowthDigit1" type="Sprite" parent="UI/TomatoDescription"]
-position = Vector2( 145, 20 )
-texture = ExtResource( 30 )
-
-[node name="CornButton" parent="UI" instance=ExtResource( 1 )]
+[node name="PumpkinButton" parent="UI/SeedButtons" instance=ExtResource( 1 )]
 margin_top = 320.0
 margin_bottom = 370.0
-icon = ExtResource( 6 )
-CropType = 4
+icon = ExtResource( 5 )
+CropType = 6
 
-[node name="Digit2" parent="UI/CornButton" index="1"]
-texture = ExtResource( 8 )
+[node name="Digit2" parent="UI/SeedButtons/PumpkinButton" index="1"]
+texture = ExtResource( 9 )
 
-[node name="Digit3" type="Sprite" parent="UI/CornButton"]
+[node name="Digit3" type="Sprite" parent="UI/SeedButtons/PumpkinButton"]
 position = Vector2( 19, 40 )
 texture = ExtResource( 3 )
 
-[node name="CornDescription" parent="UI" instance=ExtResource( 31 )]
+[node name="PumpkinDescription" parent="UI/SeedButtons" instance=ExtResource( 31 )]
 margin_left = 64.0
 margin_top = 325.0
 margin_right = 218.0
 margin_bottom = 365.0
 
-[node name="Season" parent="UI/CornDescription" index="0"]
-texture = ExtResource( 26 )
-
-[node name="SellDigit1" parent="UI/CornDescription" index="2"]
-texture = ExtResource( 8 )
-
-[node name="SellDigit2" parent="UI/CornDescription" index="3"]
-texture = ExtResource( 9 )
-
-[node name="GrowthDigit1" parent="UI/CornDescription" index="5"]
-texture = ExtResource( 3 )
-
-[node name="Season2" type="Sprite" parent="UI/CornDescription"]
-position = Vector2( 20, 20 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Season" parent="UI/SeedButtons/PumpkinDescription" index="0"]
 texture = ExtResource( 25 )
 
-[node name="GrowthDigit2" type="Sprite" parent="UI/CornDescription"]
-position = Vector2( 117, 20 )
-texture = ExtResource( 30 )
-
-[node name="Slash" type="Sprite" parent="UI/CornDescription"]
-position = Vector2( 131, 20 )
-texture = ExtResource( 32 )
-
-[node name="RegrowthDigit1" type="Sprite" parent="UI/CornDescription"]
-position = Vector2( 145, 20 )
-texture = ExtResource( 30 )
-
-[node name="CarrotButton" parent="UI" instance=ExtResource( 1 )]
-margin_top = 384.0
-margin_bottom = 434.0
-icon = ExtResource( 2 )
-CropType = 5
-
-[node name="Digit2" parent="UI/CarrotButton" index="1"]
-texture = ExtResource( 8 )
-
-[node name="CarrotDescription" parent="UI" instance=ExtResource( 31 )]
-margin_left = 64.0
-margin_top = 389.0
-margin_right = 218.0
-margin_bottom = 429.0
-
-[node name="Season" parent="UI/CarrotDescription" index="0"]
-texture = ExtResource( 25 )
-
-[node name="SellDigit1" parent="UI/CarrotDescription" index="2"]
-texture = ExtResource( 34 )
-
-[node name="SellDigit2" parent="UI/CarrotDescription" index="3"]
-texture = ExtResource( 9 )
-
-[node name="GrowthDigit1" parent="UI/CarrotDescription" index="5"]
-texture = ExtResource( 33 )
-
-[node name="PumpkinButton" parent="UI" instance=ExtResource( 1 )]
-margin_top = 448.0
-margin_bottom = 498.0
-icon = ExtResource( 5 )
-CropType = 6
-
-[node name="Digit2" parent="UI/PumpkinButton" index="1"]
-texture = ExtResource( 9 )
-
-[node name="Digit3" type="Sprite" parent="UI/PumpkinButton"]
-position = Vector2( 19, 40 )
-texture = ExtResource( 3 )
-
-[node name="PumpkinDescription" parent="UI" instance=ExtResource( 31 )]
-margin_left = 64.0
-margin_top = 453.0
-margin_right = 218.0
-margin_bottom = 493.0
-
-[node name="Season" parent="UI/PumpkinDescription" index="0"]
-texture = ExtResource( 25 )
-
-[node name="SellDigit2" parent="UI/PumpkinDescription" index="3"]
+[node name="SellDigit2" parent="UI/SeedButtons/PumpkinDescription" index="3"]
 texture = ExtResource( 29 )
 
-[node name="GrowthDigit1" parent="UI/PumpkinDescription" index="5"]
+[node name="GrowthDigit1" parent="UI/SeedButtons/PumpkinDescription" index="5"]
 texture = ExtResource( 3 )
 
-[node name="SellDigit3" type="Sprite" parent="UI/PumpkinDescription"]
-position = Vector2( 75, 20 )
+[node name="SellDigit3" type="Sprite" parent="UI/SeedButtons/PumpkinDescription"]
+position = Vector2( 79, 20 )
 texture = ExtResource( 9 )
 
-[node name="GrowthDigit2" type="Sprite" parent="UI/PumpkinDescription"]
-position = Vector2( 117, 20 )
+[node name="GrowthDigit2" type="Sprite" parent="UI/SeedButtons/PumpkinDescription"]
+position = Vector2( 125, 20 )
 texture = ExtResource( 35 )
 
 [node name="CoinFactory" type="Node2D" parent="."]
@@ -816,15 +854,15 @@ autoplay = true
 
 [connection signal="pressed" from="UI/EndDayButton" to="GameManager" method="OnEndDayPressed"]
 
-[editable path="UI/TurnipButton"]
-[editable path="UI/TurnipDescription"]
-[editable path="UI/WheatButton"]
-[editable path="UI/WheatDescription"]
-[editable path="UI/TomatoButton"]
-[editable path="UI/TomatoDescription"]
-[editable path="UI/CornButton"]
-[editable path="UI/CornDescription"]
-[editable path="UI/CarrotButton"]
-[editable path="UI/CarrotDescription"]
-[editable path="UI/PumpkinButton"]
-[editable path="UI/PumpkinDescription"]
+[editable path="UI/SeedButtons/TurnipButton"]
+[editable path="UI/SeedButtons/TurnipDescription"]
+[editable path="UI/SeedButtons/WheatButton"]
+[editable path="UI/SeedButtons/WheatDescription"]
+[editable path="UI/SeedButtons/TomatoButton"]
+[editable path="UI/SeedButtons/TomatoDescription"]
+[editable path="UI/SeedButtons/CornButton"]
+[editable path="UI/SeedButtons/CornDescription"]
+[editable path="UI/SeedButtons/CarrotButton"]
+[editable path="UI/SeedButtons/CarrotDescription"]
+[editable path="UI/SeedButtons/PumpkinButton"]
+[editable path="UI/SeedButtons/PumpkinDescription"]

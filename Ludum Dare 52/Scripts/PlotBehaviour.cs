@@ -26,7 +26,17 @@ public class PlotBehaviour : StaticBody2D
     public void OnInputEvent(Node viewport, InputEvent @event, int shape_idx)
     {
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.IsPressed())
-            _cropBehaviour.PlantOrHarvest();
+        {
+            if (GameManager.CurrentToolType == ToolType.WateringCan)
+            {
+                _soilBehaviour.Water();
+                _cropBehaviour.Water();
+            }
+            else
+            {
+                _cropBehaviour.PlantOrHarvest();
+            }
+        }
     }
 
     public void OnMouseEntered()
