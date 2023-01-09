@@ -2,7 +2,7 @@
 
 ## Make it Grow
 
-![](Ludum%20Dare%2052/Cover.png)
+![](Cover.png)
 
 https://lilou-cormic.itch.io/make-it-grow
 
