@@ -22,6 +22,10 @@ public class GameManager : Node2D
 
     public static int Money { get; private set; } = 100;
 
+    public static int Day { get; private set; } = 1;
+
+    public static Season Season { get; private set; } = Season.Spring;
+
     #endregion
 
     #region Events
@@ -29,6 +33,8 @@ public class GameManager : Node2D
     public static event Action CurrentCropTypeChanged;
 
     public static event Action MoneyChanged;
+
+    public static event Action DayPassed;
 
     #endregion
 
@@ -50,6 +56,37 @@ public class GameManager : Node2D
             Money = 0;
 
         MoneyChanged?.Invoke();
+    }
+
+    public void OnEndDayPressed()
+    {
+        Day++;
+
+        if (Day >= 31)
+            ChangeSeason();
+
+        DayPassed?.Invoke();
+    }
+
+    private void ChangeSeason()
+    {
+        switch (Season)
+        {
+            case Season.Spring:
+                Season = Season.Summer;
+                break;
+
+            case Season.Summer:
+                Season = Season.Fall;
+                break;
+
+            case Season.Fall:
+                Season = Season.Spring;
+                break;
+        }
+
+        Day = 1;
+        DayPassed?.Invoke();
     }
 
     #endregion

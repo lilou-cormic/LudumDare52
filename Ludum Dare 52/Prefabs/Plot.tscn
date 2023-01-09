@@ -26,7 +26,10 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
 [node name="Crop" type="Sprite" parent="."]
+position = Vector2( 0, 18 )
 scale = Vector2( 2, 2 )
+centered = false
+offset = Vector2( -9, -18 )
 script = ExtResource( 1 )
 
 [connection signal="input_event" from="." to="." method="OnInputEvent"]

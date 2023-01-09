@@ -1,10 +1,14 @@
 ﻿using Godot;
+using PurpleCable;
+using System.Collections.Generic;
 
 public class CropBehaviour : Sprite
 {
     #region Data
 
     private Crop _crop;
+
+    private List<SimpleAnimation> _animations;
 
     #endregion
 
@@ -14,6 +18,12 @@ public class CropBehaviour : Sprite
     {
         _crop = new Crop();
         _crop.StateChanged += SetTexture;
+
+        _animations = new List<SimpleAnimation>()
+        {
+            new ScaleAnimation(this) { Duration = 0.3f, EndLocalScale = new Vector2(Scale.x * 0.9f, Scale.y * 1.2f) },
+            new ScaleAnimation(this) { Delay = 0.3f, Duration = 1, EndLocalScale = Scale },
+        };
     }
 
     #endregion
@@ -54,9 +64,26 @@ public class CropBehaviour : Sprite
         }
     }
 
-    public void Plant()
+    public void PlantOrHarvest()
     {
-        _crop.Plant(Crops.GetCropDef(GameManager.CurrentCropType));
+        if (_crop.State != CropState.Empty)
+        {
+            if (_crop.State == CropState.Ready)
+                CoinFactory.Spawn(GlobalPosition);
+
+            _crop.Harvest();
+        }
+        else
+        {
+            _crop.Plant(Crops.GetCropDef(GameManager.CurrentCropType));
+
+            _animations.ForEach(animation => animation.Start());
+        }
+    }
+
+    public override void _PhysicsProcess(float delta)
+    {
+        _animations.ForEach(animation => animation.PhysicsProcess(delta));
     }
 
     #endregion

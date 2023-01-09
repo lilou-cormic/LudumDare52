@@ -1,4 +1,5 @@
 using Godot;
+using System.Runtime.CompilerServices;
 
 public class PlotBehaviour : StaticBody2D
 {
@@ -25,13 +26,13 @@ public class PlotBehaviour : StaticBody2D
     public void OnInputEvent(Node viewport, InputEvent @event, int shape_idx)
     {
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.IsPressed())
-            _cropBehaviour.Plant();
+            _cropBehaviour.PlantOrHarvest();
     }
 
     public void OnMouseEntered()
     {
-        if (Input.IsMouseButtonPressed((int)ButtonList.Left) || Input.IsMouseButtonPressed((int)ButtonList.Middle) || Input.IsMouseButtonPressed((int)ButtonList.Right))
-            _cropBehaviour.Plant();
+        //if (Input.IsMouseButtonPressed((int)ButtonList.Left) || Input.IsMouseButtonPressed((int)ButtonList.Middle) || Input.IsMouseButtonPressed((int)ButtonList.Right))
+        //    _cropBehaviour.PlantOrHarvest();
 
         _soilBehaviour.SetHighlight(true);
     }
@@ -43,5 +44,3 @@ public class PlotBehaviour : StaticBody2D
 
     #endregion
 }
-
-

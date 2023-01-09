@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Godot;
+using System;
+using System.Linq.Expressions;
 
 public class Crop
 {
@@ -37,11 +39,8 @@ public class Crop
 
         set
         {
-            if (_DaysToGrow != value)
-            {
-                _DaysToGrow = value;
-                Age = 0;
-            }
+            _DaysToGrow = value;
+            Age = 0;
         }
     }
 
@@ -53,13 +52,22 @@ public class Crop
 
     #endregion
 
+    #region Initialisation
+
+    public Crop()
+    {
+        GameManager.DayPassed += OnDayPassed;
+    }
+
+    #endregion
+
     #region Methods
 
     public void Plant(CropDef cropDef)
     {
         if (State == CropState.Empty && cropDef != null)
         {
-            if (cropDef.SeedCost <= GameManager.Money)
+            if (cropDef.Season.HasFlag(GameManager.Season) && cropDef.SeedCost <= GameManager.Money)
             {
                 GameManager.ChangeMoney(-cropDef.SeedCost);
 
@@ -78,11 +86,16 @@ public class Crop
 
             if (Age >= DaysToGrow)
                 State = CropState.Ready;
+            else
+                StateChanged?.Invoke();
         }
     }
 
     public void Harvest()
     {
+        if (State == CropState.Empty || State == CropState.Growing || State == CropState.Regrowing)
+            return;
+
         if (State == CropState.Ready)
         {
             GameManager.ChangeMoney(Def.SellPrice);
@@ -106,6 +119,19 @@ public class Crop
     public void Die()
     {
         State = CropState.Dead;
+    }
+
+    public void OnDayPassed()
+    {
+        if (State != CropState.Empty)
+        {
+            GD.Print(Def.Season + " " + GameManager.Season);
+
+            if (Def.Season.HasFlag(GameManager.Season))
+                Grow();
+            else
+                Die();
+        }
     }
 
     #endregion

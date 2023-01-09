@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
@@ -14,12 +14,399 @@
 [ext_resource path="res://Scripts/MoneyDisplay.cs" type="Script" id=12]
 [ext_resource path="res://Fonts/KenneyPixelNumbers.fnt" type="BitmapFont" id=13]
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Coin.tres" type="Texture" id=14]
+[ext_resource path="res://Prefabs/Grass.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/DayDisplay.cs" type="Script" id=16]
+[ext_resource path="res://Prefabs/Coin.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/CoinFactory.cs" type="Script" id=18]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/BorderTop.tres" type="Texture" id=19]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/BorderRight.tres" type="Texture" id=20]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/BorderBottom.tres" type="Texture" id=21]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/BorderLeft.tres" type="Texture" id=22]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/BorderCorner.png" type="Texture" id=23]
+[ext_resource path="res://Images/Kenney/Foliage Pack/Spring.png" type="Texture" id=24]
+[ext_resource path="res://Images/Kenney/Foliage Pack/Fall.png" type="Texture" id=25]
+[ext_resource path="res://Images/Kenney/Foliage Pack/Summer.png" type="Texture" id=26]
+[ext_resource path="res://Scripts/SeasonDisplay.cs" type="Script" id=27]
+[ext_resource path="res://Images/Kenney/Background Elements Redux/PNG/Default/EndDay.png" type="Texture" id=28]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number2.tres" type="Texture" id=29]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number4.tres" type="Texture" id=30]
+[ext_resource path="res://Prefabs/CropDescription.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Slash.png" type="Texture" id=32]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number6.tres" type="Texture" id=33]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number8.tres" type="Texture" id=34]
+[ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number3.tres" type="Texture" id=35]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource( 10 )]
 
+[node name="Lawn" type="Node2D" parent="."]
+
+[node name="Grass1" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 32 )
+
+[node name="Grass2" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 32 )
+
+[node name="Grass3" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 160, 32 )
+
+[node name="Grass4" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 224, 32 )
+
+[node name="Grass5" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 288, 32 )
+
+[node name="Grass6" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 352, 32 )
+
+[node name="Grass7" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 416, 32 )
+
+[node name="Grass8" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 480, 32 )
+
+[node name="Grass9" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 544, 32 )
+
+[node name="Grass10" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 608, 32 )
+
+[node name="Grass11" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 32 )
+
+[node name="Grass12" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 32 )
+
+[node name="Grass13" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 96 )
+
+[node name="Grass14" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 96 )
+
+[node name="Grass15" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 160, 96 )
+
+[node name="Grass16" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 224, 96 )
+
+[node name="Grass17" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 288, 96 )
+
+[node name="Grass18" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 352, 96 )
+
+[node name="Grass19" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 416, 96 )
+
+[node name="Grass20" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 480, 96 )
+
+[node name="Grass21" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 544, 96 )
+
+[node name="Grass22" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 608, 96 )
+
+[node name="Grass23" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 96 )
+
+[node name="Grass24" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 96 )
+
+[node name="Grass25" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 160 )
+
+[node name="Grass26" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 160 )
+
+[node name="Grass27" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 160 )
+
+[node name="Grass28" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 160 )
+
+[node name="Grass29" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 224 )
+
+[node name="Grass30" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 224 )
+
+[node name="Grass31" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 224 )
+
+[node name="Grass32" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 224 )
+
+[node name="Grass33" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 288 )
+
+[node name="Grass34" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 288 )
+
+[node name="Grass35" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 288 )
+
+[node name="Grass36" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 288 )
+
+[node name="Grass37" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 352 )
+
+[node name="Grass38" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 352 )
+
+[node name="Grass39" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 352 )
+
+[node name="Grass40" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 352 )
+
+[node name="Grass41" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 416 )
+
+[node name="Grass42" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 416 )
+
+[node name="Grass43" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 416 )
+
+[node name="Grass44" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 416 )
+
+[node name="Grass45" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 480 )
+
+[node name="Grass46" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 480 )
+
+[node name="Grass47" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 160, 480 )
+
+[node name="Grass48" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 224, 480 )
+
+[node name="Grass49" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 288, 480 )
+
+[node name="Grass50" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 352, 480 )
+
+[node name="Grass51" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 416, 480 )
+
+[node name="Grass52" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 480, 480 )
+
+[node name="Grass53" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 544, 480 )
+
+[node name="Grass54" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 608, 480 )
+
+[node name="Grass55" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 480 )
+
+[node name="Grass56" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 480 )
+
+[node name="Grass57" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 32, 544 )
+
+[node name="Grass58" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 96, 544 )
+
+[node name="Grass59" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 160, 544 )
+
+[node name="Grass60" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 224, 544 )
+
+[node name="Grass61" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 288, 544 )
+
+[node name="Grass62" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 352, 544 )
+
+[node name="Grass63" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 416, 544 )
+
+[node name="Grass64" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 480, 544 )
+
+[node name="Grass65" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 544, 544 )
+
+[node name="Grass66" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 608, 544 )
+
+[node name="Grass67" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 672, 544 )
+
+[node name="Grass68" parent="Lawn" instance=ExtResource( 15 )]
+position = Vector2( 736, 544 )
+
+[node name="Border" type="Node2D" parent="."]
+position = Vector2( 96, 96 )
+scale = Vector2( 4, 4 )
+
+[node name="BorderTop1" type="Sprite" parent="Border"]
+position = Vector2( 8, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop2" type="Sprite" parent="Border"]
+position = Vector2( 24, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop3" type="Sprite" parent="Border"]
+position = Vector2( 40, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop4" type="Sprite" parent="Border"]
+position = Vector2( 56, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop5" type="Sprite" parent="Border"]
+position = Vector2( 72, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop6" type="Sprite" parent="Border"]
+position = Vector2( 88, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop7" type="Sprite" parent="Border"]
+position = Vector2( 104, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop8" type="Sprite" parent="Border"]
+position = Vector2( 120, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderTop9" type="Sprite" parent="Border"]
+position = Vector2( 136, -8 )
+texture = ExtResource( 19 )
+
+[node name="BorderRight1" type="Sprite" parent="Border"]
+position = Vector2( 152, 8 )
+texture = ExtResource( 20 )
+
+[node name="BorderRight2" type="Sprite" parent="Border"]
+position = Vector2( 152, 24 )
+texture = ExtResource( 20 )
+
+[node name="BorderRight3" type="Sprite" parent="Border"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 20 )
+
+[node name="BorderRight4" type="Sprite" parent="Border"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 20 )
+
+[node name="BorderRight5" type="Sprite" parent="Border"]
+position = Vector2( 152, 72 )
+texture = ExtResource( 20 )
+
+[node name="BorderRight6" type="Sprite" parent="Border"]
+position = Vector2( 152, 88 )
+texture = ExtResource( 20 )
+
+[node name="BorderBottom1" type="Sprite" parent="Border"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom2" type="Sprite" parent="Border"]
+position = Vector2( 24, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom3" type="Sprite" parent="Border"]
+position = Vector2( 40, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom4" type="Sprite" parent="Border"]
+position = Vector2( 56, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom5" type="Sprite" parent="Border"]
+position = Vector2( 72, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom6" type="Sprite" parent="Border"]
+position = Vector2( 88, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom7" type="Sprite" parent="Border"]
+position = Vector2( 104, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom8" type="Sprite" parent="Border"]
+position = Vector2( 120, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderBottom9" type="Sprite" parent="Border"]
+position = Vector2( 136, 104 )
+texture = ExtResource( 21 )
+
+[node name="BorderLeft1" type="Sprite" parent="Border"]
+position = Vector2( -8, 8 )
+texture = ExtResource( 22 )
+
+[node name="BorderLeft2" type="Sprite" parent="Border"]
+position = Vector2( -8, 24 )
+texture = ExtResource( 22 )
+
+[node name="BorderLeft3" type="Sprite" parent="Border"]
+position = Vector2( -8, 40 )
+texture = ExtResource( 22 )
+
+[node name="BorderLeft4" type="Sprite" parent="Border"]
+position = Vector2( -8, 56 )
+texture = ExtResource( 22 )
+
+[node name="BorderLeft5" type="Sprite" parent="Border"]
+position = Vector2( -8, 72 )
+texture = ExtResource( 22 )
+
+[node name="BorderLeft6" type="Sprite" parent="Border"]
+position = Vector2( -8, 88 )
+texture = ExtResource( 22 )
+
+[node name="BorderCorner1" type="Sprite" parent="Border"]
+position = Vector2( -8, -8 )
+texture = ExtResource( 23 )
+
+[node name="BorderCorner2" type="Sprite" parent="Border"]
+position = Vector2( 152, -8 )
+texture = ExtResource( 23 )
+flip_h = true
+
+[node name="BorderCorner3" type="Sprite" parent="Border"]
+position = Vector2( -8, 104 )
+texture = ExtResource( 23 )
+flip_v = true
+
+[node name="BorderCorner4" type="Sprite" parent="Border"]
+position = Vector2( 152, 104 )
+texture = ExtResource( 23 )
+flip_h = true
+flip_v = true
+
 [node name="Garden" type="Node2D" parent="."]
+position = Vector2( 96, 96 )
+
+[node name="Plot1" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 32, 32 )
+
+[node name="Plot2" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 96, 32 )
+
+[node name="Plot3" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 160, 32 )
+
+[node name="Plot4" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 224, 32 )
+
+[node name="Plot5" parent="Garden" instance=ExtResource( 11 )]
+position = Vector2( 288, 32 )
 
 [node name="Plot6" parent="Garden" instance=ExtResource( 11 )]
 position = Vector2( 352, 32 )
@@ -41,21 +428,6 @@ position = Vector2( 96, 96 )
 
 [node name="Plot12" parent="Garden" instance=ExtResource( 11 )]
 position = Vector2( 160, 96 )
-
-[node name="Plot1" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 32, 32 )
-
-[node name="Plot2" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 96, 32 )
-
-[node name="Plot3" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 160, 32 )
-
-[node name="Plot4" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 224, 32 )
-
-[node name="Plot5" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 288, 32 )
 
 [node name="Plot13" parent="Garden" instance=ExtResource( 11 )]
 position = Vector2( 224, 96 )
@@ -183,99 +555,70 @@ position = Vector2( 480, 352 )
 [node name="Plot54" parent="Garden" instance=ExtResource( 11 )]
 position = Vector2( 544, 352 )
 
-[node name="Plot55" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 32, 416 )
-
-[node name="Plot56" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 96, 416 )
-
-[node name="Plot57" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 160, 416 )
-
-[node name="Plot58" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 224, 416 )
-
-[node name="Plot59" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 288, 416 )
-
-[node name="Plot60" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 352, 416 )
-
-[node name="Plot61" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 416, 416 )
-
-[node name="Plot62" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 480, 416 )
-
-[node name="Plot63" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 544, 416 )
-
-[node name="Plot64" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 32, 480 )
-
-[node name="Plot65" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 96, 480 )
-
-[node name="Plot66" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 160, 480 )
-
-[node name="Plot67" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 224, 480 )
-
-[node name="Plot68" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 288, 480 )
-
-[node name="Plot69" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 352, 480 )
-
-[node name="Plot70" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 416, 480 )
-
-[node name="Plot71" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 480, 480 )
-
-[node name="Plot72" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 544, 480 )
-
-[node name="Plot73" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 32, 544 )
-
-[node name="Plot74" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 96, 544 )
-
-[node name="Plot75" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 160, 544 )
-
-[node name="Plot76" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 224, 544 )
-
-[node name="Plot77" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 288, 544 )
-
-[node name="Plot78" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 352, 544 )
-
-[node name="Plot79" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 416, 544 )
-
-[node name="Plot80" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 480, 544 )
-
-[node name="Plot81" parent="Garden" instance=ExtResource( 11 )]
-position = Vector2( 544, 544 )
-
 [node name="UI" type="Control" parent="."]
 anchor_left = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 768.0
+margin_left = 800.0
 margin_right = 1024.0
 margin_bottom = 576.0
+
+[node name="DateDisplay" type="Node2D" parent="UI"]
+position = Vector2( 36, 16 )
+scale = Vector2( 2, 2 )
+
+[node name="DayDisplay" type="Label" parent="UI/DateDisplay"]
+margin_right = 128.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 13 )
+text = "1"
+script = ExtResource( 16 )
+
+[node name="SeasonDisplay" type="Sprite" parent="UI/DateDisplay"]
+position = Vector2( -9, 6.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 24 )
+script = ExtResource( 27 )
+SpringSprite = ExtResource( 24 )
+SummerSprite = ExtResource( 26 )
+FallSprite = ExtResource( 25 )
+
+[node name="EndDayButton" type="Button" parent="UI"]
+margin_left = 128.0
+margin_top = 8.0
+margin_right = 178.0
+margin_bottom = 58.0
+icon = ExtResource( 28 )
+expand_icon = true
+
+[node name="MoneyDisplay" type="Node2D" parent="UI"]
+position = Vector2( 36, 64 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D" type="Node2D" parent="UI/MoneyDisplay"]
+
+[node name="MoneyText" type="Label" parent="UI/MoneyDisplay/Node2D"]
+margin_right = 128.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 13 )
+text = "100"
+script = ExtResource( 12 )
+
+[node name="Coin" type="Sprite" parent="UI/MoneyDisplay"]
+position = Vector2( -18, 0 )
+texture = ExtResource( 14 )
+centered = false
 
 [node name="TurnipButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 128.0
 margin_bottom = 178.0
 CropType = 1
+
+[node name="TurnipDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 133.0
+margin_right = 218.0
+margin_bottom = 173.0
 
 [node name="WheatButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 192.0
@@ -286,6 +629,18 @@ CropType = 2
 [node name="Digit2" parent="UI/WheatButton" index="1"]
 texture = ExtResource( 3 )
 
+[node name="WheatDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 197.0
+margin_right = 218.0
+margin_bottom = 237.0
+
+[node name="Season" parent="UI/WheatDescription" index="0"]
+texture = ExtResource( 26 )
+
+[node name="SellDigit1" parent="UI/WheatDescription" index="2"]
+texture = ExtResource( 29 )
+
 [node name="TomatoButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 256.0
 margin_bottom = 306.0
@@ -294,6 +649,36 @@ CropType = 3
 
 [node name="Digit2" parent="UI/TomatoButton" index="1"]
 texture = ExtResource( 8 )
+
+[node name="TomatoDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 261.0
+margin_right = 218.0
+margin_bottom = 301.0
+
+[node name="Season" parent="UI/TomatoDescription" index="0"]
+texture = ExtResource( 26 )
+
+[node name="SellDigit1" parent="UI/TomatoDescription" index="2"]
+texture = ExtResource( 33 )
+
+[node name="SellDigit2" parent="UI/TomatoDescription" index="3"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/TomatoDescription" index="5"]
+texture = ExtResource( 3 )
+
+[node name="GrowthDigit2" type="Sprite" parent="UI/TomatoDescription"]
+position = Vector2( 117, 20 )
+texture = ExtResource( 3 )
+
+[node name="Slash" type="Sprite" parent="UI/TomatoDescription"]
+position = Vector2( 131, 20 )
+texture = ExtResource( 32 )
+
+[node name="RegrowthDigit1" type="Sprite" parent="UI/TomatoDescription"]
+position = Vector2( 145, 20 )
+texture = ExtResource( 30 )
 
 [node name="CornButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 320.0
@@ -308,6 +693,41 @@ texture = ExtResource( 8 )
 position = Vector2( 19, 40 )
 texture = ExtResource( 3 )
 
+[node name="CornDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 325.0
+margin_right = 218.0
+margin_bottom = 365.0
+
+[node name="Season" parent="UI/CornDescription" index="0"]
+texture = ExtResource( 26 )
+
+[node name="Season2" type="Sprite" parent="UI/CornDescription"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+
+[node name="SellDigit1" parent="UI/CornDescription" index="3"]
+texture = ExtResource( 8 )
+
+[node name="SellDigit2" parent="UI/CornDescription" index="4"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/CornDescription" index="6"]
+texture = ExtResource( 3 )
+
+[node name="GrowthDigit2" type="Sprite" parent="UI/CornDescription"]
+position = Vector2( 117, 20 )
+texture = ExtResource( 30 )
+
+[node name="Slash" type="Sprite" parent="UI/CornDescription"]
+position = Vector2( 131, 20 )
+texture = ExtResource( 32 )
+
+[node name="RegrowthDigit1" type="Sprite" parent="UI/CornDescription"]
+position = Vector2( 145, 20 )
+texture = ExtResource( 30 )
+
 [node name="CarrotButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 384.0
 margin_bottom = 434.0
@@ -316,6 +736,24 @@ CropType = 5
 
 [node name="Digit2" parent="UI/CarrotButton" index="1"]
 texture = ExtResource( 8 )
+
+[node name="CarrotDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 389.0
+margin_right = 218.0
+margin_bottom = 429.0
+
+[node name="Season" parent="UI/CarrotDescription" index="0"]
+texture = ExtResource( 25 )
+
+[node name="SellDigit1" parent="UI/CarrotDescription" index="2"]
+texture = ExtResource( 34 )
+
+[node name="SellDigit2" parent="UI/CarrotDescription" index="3"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/CarrotDescription" index="5"]
+texture = ExtResource( 33 )
 
 [node name="PumpkinButton" parent="UI" instance=ExtResource( 1 )]
 margin_top = 448.0
@@ -330,25 +768,44 @@ texture = ExtResource( 9 )
 position = Vector2( 19, 40 )
 texture = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D" parent="UI"]
-position = Vector2( 36, 32 )
-scale = Vector2( 2, 2 )
+[node name="PumpkinDescription" parent="UI" instance=ExtResource( 31 )]
+margin_left = 64.0
+margin_top = 453.0
+margin_right = 218.0
+margin_bottom = 493.0
 
-[node name="MoneyText" type="Label" parent="UI/Node2D"]
-margin_right = 128.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 13 )
-text = "100"
-script = ExtResource( 12 )
+[node name="Season" parent="UI/PumpkinDescription" index="0"]
+texture = ExtResource( 25 )
 
-[node name="Coin" type="Sprite" parent="UI/Node2D"]
-position = Vector2( -18, 0 )
-texture = ExtResource( 14 )
-centered = false
+[node name="SellDigit2" parent="UI/PumpkinDescription" index="3"]
+texture = ExtResource( 29 )
+
+[node name="SellDigit3" type="Sprite" parent="UI/PumpkinDescription"]
+position = Vector2( 75, 20 )
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/PumpkinDescription" index="6"]
+texture = ExtResource( 3 )
+
+[node name="GrowthDigit2" type="Sprite" parent="UI/PumpkinDescription"]
+position = Vector2( 117, 20 )
+texture = ExtResource( 35 )
+
+[node name="CoinFactory" type="Node2D" parent="."]
+script = ExtResource( 18 )
+Prefab = ExtResource( 17 )
+
+[connection signal="pressed" from="UI/EndDayButton" to="GameManager" method="OnEndDayPressed"]
 
 [editable path="UI/TurnipButton"]
+[editable path="UI/TurnipDescription"]
 [editable path="UI/WheatButton"]
+[editable path="UI/WheatDescription"]
 [editable path="UI/TomatoButton"]
+[editable path="UI/TomatoDescription"]
 [editable path="UI/CornButton"]
+[editable path="UI/CornDescription"]
 [editable path="UI/CarrotButton"]
+[editable path="UI/CarrotDescription"]
 [editable path="UI/PumpkinButton"]
+[editable path="UI/PumpkinDescription"]

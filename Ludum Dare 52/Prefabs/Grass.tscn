@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SpringGrass.tres" type="Texture" id=1]
+[ext_resource path="res://Scripts/GrassBehaviour.cs" type="Script" id=2]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/FallGrass.png" type="Texture" id=3]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SummerGrass.tres" type="Texture" id=4]
+
+[node name="Grass" type="Sprite"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+SpringSprite = ExtResource( 1 )
+SummerSprite = ExtResource( 4 )
+FallSprite = ExtResource( 3 )
