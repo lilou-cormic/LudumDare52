@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/drop_004.ogg-f81ef59dd2fbb68d9a83ff8d6db6ac6e.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_004.ogg"
+dest_files=[ "res://.import/drop_004.ogg-f81ef59dd2fbb68d9a83ff8d6db6ac6e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -44,10 +44,5 @@ namespace PurpleCable
 
             Node.GlobalPosition = _originalGlobalPosition;
         }
-
-        protected override void StartExtended()
-        {
-            GD.Print($"{Node.GlobalPosition}, {EndGlobalPosition}");
-        }
     }
 }

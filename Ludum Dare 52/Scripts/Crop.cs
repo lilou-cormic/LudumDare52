@@ -44,6 +44,8 @@ public class Crop
         }
     }
 
+    public bool CanHarvest => State == CropState.Ready || State == CropState.Dead;
+
     #endregion
 
     #region Events
@@ -93,7 +95,7 @@ public class Crop
 
     public void Harvest()
     {
-        if (State == CropState.Empty || State == CropState.Growing || State == CropState.Regrowing)
+        if (!CanHarvest)
             return;
 
         if (State == CropState.Ready)
@@ -125,8 +127,6 @@ public class Crop
     {
         if (State != CropState.Empty)
         {
-            GD.Print(Def.Season + " " + GameManager.Season);
-
             if (Def.Season.HasFlag(GameManager.Season))
                 Grow();
             else

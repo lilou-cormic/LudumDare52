@@ -26,6 +26,10 @@ public class GameManager : Node2D
 
     public static Season Season { get; private set; } = Season.Spring;
 
+    public static float MusicVolume = 0;
+
+    public static float SfxVolume = 0;
+
     #endregion
 
     #region Events

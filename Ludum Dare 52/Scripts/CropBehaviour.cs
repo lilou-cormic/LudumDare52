@@ -4,11 +4,23 @@ using System.Collections.Generic;
 
 public class CropBehaviour : Sprite
 {
+    #region Editor
+
+    [Export] AudioStream PlantSound;
+
+    [Export] AudioStream HarvestSound;
+
+    [Export] AudioStream ActionDeniedSound;
+
+    #endregion
+
     #region Data
 
     private Crop _crop;
 
     private List<SimpleAnimation> _animations;
+
+    private AudioStreamPlayer _soundPlayer;
 
     #endregion
 
@@ -16,6 +28,9 @@ public class CropBehaviour : Sprite
 
     public override void _Ready()
     {
+        _soundPlayer = GetChild<AudioStreamPlayer>(0);
+        _soundPlayer.VolumeDb = GameManager.SfxVolume;
+
         _crop = new Crop();
         _crop.StateChanged += SetTexture;
 
@@ -68,17 +83,38 @@ public class CropBehaviour : Sprite
     {
         if (_crop.State != CropState.Empty)
         {
-            if (_crop.State == CropState.Ready)
-                CoinFactory.Spawn(GlobalPosition);
+            if (_crop.CanHarvest)
+            {
+                if (_crop.State == CropState.Ready)
+                    CoinFactory.Spawn(GlobalPosition);
 
-            _crop.Harvest();
+                _soundPlayer.Stream = HarvestSound;
+                _soundPlayer.Play();
+
+                _crop.Harvest();
+
+                return;
+            }
         }
         else
         {
-            _crop.Plant(Crops.GetCropDef(GameManager.CurrentCropType));
+            CropDef cropDef = Crops.GetCropDef(GameManager.CurrentCropType);
 
-            _animations.ForEach(animation => animation.Start());
+            if (cropDef.Season.HasFlag(GameManager.Season) && cropDef.SeedCost <= GameManager.Money)
+            {
+                _soundPlayer.Stream = PlantSound;
+                _soundPlayer.Play();
+
+                _crop.Plant(Crops.GetCropDef(GameManager.CurrentCropType));
+
+                _animations.ForEach(animation => animation.Start());
+
+                return;
+            }
         }
+
+        _soundPlayer.Stream = ActionDeniedSound;
+        _soundPlayer.Play();
     }
 
     public override void _PhysicsProcess(float delta)

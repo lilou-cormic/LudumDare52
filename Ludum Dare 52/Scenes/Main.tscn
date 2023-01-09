@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
@@ -35,6 +35,10 @@
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number6.tres" type="Texture" id=33]
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number8.tres" type="Texture" id=34]
 [ext_resource path="res://Images/Kenney/Pixel Platformer/Tilemap/Number3.tres" type="Texture" id=35]
+[ext_resource path="res://Music/spring.ogg" type="AudioStream" id=36]
+[ext_resource path="res://Music/fall.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Music/summer.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Scripts/SeasonMusicPlayer.cs" type="Script" id=39]
 
 [node name="Main" type="Node2D"]
 
@@ -702,19 +706,19 @@ margin_bottom = 365.0
 [node name="Season" parent="UI/CornDescription" index="0"]
 texture = ExtResource( 26 )
 
+[node name="SellDigit1" parent="UI/CornDescription" index="2"]
+texture = ExtResource( 8 )
+
+[node name="SellDigit2" parent="UI/CornDescription" index="3"]
+texture = ExtResource( 9 )
+
+[node name="GrowthDigit1" parent="UI/CornDescription" index="5"]
+texture = ExtResource( 3 )
+
 [node name="Season2" type="Sprite" parent="UI/CornDescription"]
 position = Vector2( 20, 20 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 25 )
-
-[node name="SellDigit1" parent="UI/CornDescription" index="3"]
-texture = ExtResource( 8 )
-
-[node name="SellDigit2" parent="UI/CornDescription" index="4"]
-texture = ExtResource( 9 )
-
-[node name="GrowthDigit1" parent="UI/CornDescription" index="6"]
-texture = ExtResource( 3 )
 
 [node name="GrowthDigit2" type="Sprite" parent="UI/CornDescription"]
 position = Vector2( 117, 20 )
@@ -780,12 +784,12 @@ texture = ExtResource( 25 )
 [node name="SellDigit2" parent="UI/PumpkinDescription" index="3"]
 texture = ExtResource( 29 )
 
+[node name="GrowthDigit1" parent="UI/PumpkinDescription" index="5"]
+texture = ExtResource( 3 )
+
 [node name="SellDigit3" type="Sprite" parent="UI/PumpkinDescription"]
 position = Vector2( 75, 20 )
 texture = ExtResource( 9 )
-
-[node name="GrowthDigit1" parent="UI/PumpkinDescription" index="6"]
-texture = ExtResource( 3 )
 
 [node name="GrowthDigit2" type="Sprite" parent="UI/PumpkinDescription"]
 position = Vector2( 117, 20 )
@@ -794,6 +798,21 @@ texture = ExtResource( 35 )
 [node name="CoinFactory" type="Node2D" parent="."]
 script = ExtResource( 18 )
 Prefab = ExtResource( 17 )
+
+[node name="SeasonMusicPlayer" type="Node2D" parent="."]
+script = ExtResource( 39 )
+
+[node name="SpringMusicPlayer" type="AudioStreamPlayer" parent="SeasonMusicPlayer"]
+stream = ExtResource( 36 )
+autoplay = true
+
+[node name="SummerMusicPlayer" type="AudioStreamPlayer" parent="SeasonMusicPlayer"]
+stream = ExtResource( 38 )
+autoplay = true
+
+[node name="FallMusicPlayer" type="AudioStreamPlayer" parent="SeasonMusicPlayer"]
+stream = ExtResource( 37 )
+autoplay = true
 
 [connection signal="pressed" from="UI/EndDayButton" to="GameManager" method="OnEndDayPressed"]
 

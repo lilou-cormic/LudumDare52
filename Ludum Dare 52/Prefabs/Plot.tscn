@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/CropBehaviour.cs" type="Script" id=1]
 [ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilDry.tres" type="Texture" id=2]
 [ext_resource path="res://Scripts/SoilBehaviour.cs" type="Script" id=3]
 [ext_resource path="res://Scripts/PlotBehaviour.cs" type="Script" id=4]
 [ext_resource path="res://Images/Kenney/Crosshair Pack/PNG/White/crosshair026.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_004.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_001.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/back_002.ogg" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -31,6 +34,11 @@ scale = Vector2( 2, 2 )
 centered = false
 offset = Vector2( -9, -18 )
 script = ExtResource( 1 )
+PlantSound = ExtResource( 6 )
+HarvestSound = ExtResource( 7 )
+ActionDeniedSound = ExtResource( 8 )
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="Crop"]
 
 [connection signal="input_event" from="." to="." method="OnInputEvent"]
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
