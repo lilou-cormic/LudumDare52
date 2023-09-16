@@ -128,7 +128,8 @@ public class CropBehaviour : Sprite
 
         _crop.Water();
 
-        _animations.ForEach(animation => animation.Start());
+        if (_crop.State != CropState.Dead)
+            _animations.ForEach(animation => animation.Start());
     }
 
     public override void _PhysicsProcess(float delta)

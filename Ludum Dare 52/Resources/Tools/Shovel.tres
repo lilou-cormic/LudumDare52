@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ToolDef.cs" type="Script" id=1]
+[ext_resource path="res://Images/jordizzle/farm assets/Tools/Shovel Cursor.png" type="Texture" id=2]
+[ext_resource path="res://Images/jordizzle/farm assets/Tools/Shovel.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+ToolType = 4
+Icon = ExtResource( 3 )
+Cursor = ExtResource( 2 )

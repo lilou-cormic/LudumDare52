@@ -50,7 +50,7 @@ public class Crop
 
     public bool CanGrow => IsWatered && (State == CropState.Growing || State == CropState.Regrowing || State == CropState.Ready);
 
-    public bool CanHarvest => State == CropState.Ready || GameManager.CurrentToolType == ToolType.Hoe;
+    public bool CanHarvest => State == CropState.Ready || GameManager.CurrentToolType == ToolType.Hoe || GameManager.CurrentToolType == ToolType.Shovel;
 
     #endregion
 

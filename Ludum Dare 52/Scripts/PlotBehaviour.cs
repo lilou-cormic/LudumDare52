@@ -16,7 +16,16 @@ public class PlotBehaviour : StaticBody2D
     public override void _Ready()
     {
         _soilBehaviour = GetChild<SoilBehaviour>(1);
+        _soilBehaviour.StateChanged += SoilBehaviour_StateChanged;
+
         _cropBehaviour = GetChild<CropBehaviour>(2);
+
+        SoilBehaviour_StateChanged();
+    }
+
+    private void SoilBehaviour_StateChanged()
+    {
+        _cropBehaviour.SetActive(!_soilBehaviour.NeedsPlowing);
     }
 
     #endregion
@@ -27,24 +36,36 @@ public class PlotBehaviour : StaticBody2D
     {
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.IsPressed())
         {
-            if (GameManager.CurrentToolType == ToolType.WateringCan)
+            switch (GameManager.CurrentToolType)
             {
-                _soilBehaviour.Water();
-                _cropBehaviour.Water();
-            }
-            else
-            {
-                _cropBehaviour.PlantOrHarvest();
+                case ToolType.WateringCan:
+                    _soilBehaviour.Water();
+                    _cropBehaviour.Water();
+                    break;
+
+                case ToolType.Shovel:
+                    _soilBehaviour.Plow();
+                    _cropBehaviour.PlantOrHarvest();
+                    break;
+
+                default:
+                    if (!_soilBehaviour.NeedsPlowing)
+                        _cropBehaviour.PlantOrHarvest();
+                    break;
             }
         }
     }
 
     public void OnMouseEntered()
     {
-        //if (Input.IsMouseButtonPressed((int)ButtonList.Left) || Input.IsMouseButtonPressed((int)ButtonList.Middle) || Input.IsMouseButtonPressed((int)ButtonList.Right))
-        //    _cropBehaviour.PlantOrHarvest();
-
         _soilBehaviour.SetHighlight(true);
+
+        if (GameManager.CurrentToolType == ToolType.WateringCan &&
+            (Input.IsMouseButtonPressed((int)ButtonList.Left) || Input.IsMouseButtonPressed((int)ButtonList.Middle) || Input.IsMouseButtonPressed((int)ButtonList.Right)))
+        {
+            _soilBehaviour.Water();
+            _cropBehaviour.Water();
+        }
     }
 
     public void OnMouseExited()

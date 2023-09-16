@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 public class SoilBehaviour : Sprite
 {
@@ -8,11 +9,19 @@ public class SoilBehaviour : Sprite
 
     [Export] public Texture WetSoilSprite;
 
+    [Export] public bool NeedsPlowing;
+
     #endregion
 
     #region Data
 
     private Sprite _HighlightSprite;
+
+    #endregion
+
+    #region Events
+
+    public event Action StateChanged;
 
     #endregion
 
@@ -32,17 +41,30 @@ public class SoilBehaviour : Sprite
 
     public void SetHighlight(bool highlight)
     {
+        if (NeedsPlowing && GameManager.CurrentToolType != ToolType.Shovel)
+            highlight = false;
+
         _HighlightSprite.Visible = highlight;
+    }
+
+    public void Plow()
+    {
+        NeedsPlowing = false;
+        DryUp();
+
+        StateChanged?.Invoke();
     }
 
     public void Water()
     {
-        Texture = WetSoilSprite;
+        if (!NeedsPlowing)
+            Texture = WetSoilSprite;
     }
 
     private void DryUp()
     {
-        Texture = DrySoilSprite;
+        if (!NeedsPlowing)
+            Texture = DrySoilSprite;
     }
 
     #endregion

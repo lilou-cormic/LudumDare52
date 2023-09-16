@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Prefabs/SeedButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/jordizzle/farm assets/Fruits and Vegetables/Carrot.png" type="Texture" id=2]
@@ -43,6 +43,10 @@
 [ext_resource path="res://Prefabs/ToolButton.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Images/jordizzle/farm assets/Tools/Watering Can.png" type="Texture" id=42]
 [ext_resource path="res://Images/Hand.png" type="Texture" id=43]
+[ext_resource path="res://Scripts/CursorBehavior.cs" type="Script" id=44]
+[ext_resource path="res://Images/Kenney/Pixel Platformer Farm Expansion/Tilemap/ShovelInGround.tres" type="Texture" id=45]
+[ext_resource path="res://Images/jordizzle/farm assets/Tools/Shovel.png" type="Texture" id=46]
+[ext_resource path="res://Prefabs/GrassPlot.tscn" type="PackedScene" id=47]
 
 [node name="Main" type="Node2D"]
 
@@ -253,6 +257,108 @@ position = Vector2( 672, 544 )
 
 [node name="Grass68" parent="Lawn" instance=ExtResource( 15 )]
 position = Vector2( 736, 544 )
+
+[node name="GrassPlot1" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 128, 40 )
+
+[node name="GrassPlot19" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 40 )
+
+[node name="GrassPlot20" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 128 )
+
+[node name="GrassPlot21" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 192 )
+
+[node name="GrassPlot22" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 256 )
+
+[node name="GrassPlot23" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 320 )
+
+[node name="GrassPlot24" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 384 )
+
+[node name="GrassPlot25" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 448 )
+
+[node name="GrassPlot26" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 40, 536 )
+
+[node name="GrassPlot27" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 40 )
+
+[node name="GrassPlot28" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 128 )
+
+[node name="GrassPlot29" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 192 )
+
+[node name="GrassPlot30" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 256 )
+
+[node name="GrassPlot31" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 320 )
+
+[node name="GrassPlot32" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 384 )
+
+[node name="GrassPlot33" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 448 )
+
+[node name="GrassPlot34" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 728, 536 )
+
+[node name="GrassPlot2" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 192, 40 )
+
+[node name="GrassPlot3" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 256, 40 )
+
+[node name="GrassPlot4" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 320, 40 )
+
+[node name="GrassPlot5" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 384, 40 )
+
+[node name="GrassPlot6" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 448, 40 )
+
+[node name="GrassPlot7" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 512, 40 )
+
+[node name="GrassPlot8" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 576, 40 )
+
+[node name="GrassPlot9" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 640, 40 )
+
+[node name="GrassPlot10" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 128, 536 )
+
+[node name="GrassPlot11" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 192, 536 )
+
+[node name="GrassPlot12" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 256, 536 )
+
+[node name="GrassPlot13" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 320, 536 )
+
+[node name="GrassPlot14" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 384, 536 )
+
+[node name="GrassPlot15" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 448, 536 )
+
+[node name="GrassPlot16" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 512, 536 )
+
+[node name="GrassPlot17" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 576, 536 )
+
+[node name="GrassPlot18" parent="Lawn" instance=ExtResource( 47 )]
+position = Vector2( 640, 536 )
 
 [node name="Border" type="Node2D" parent="."]
 position = Vector2( 96, 96 )
@@ -626,26 +732,33 @@ margin_top = 128.0
 margin_bottom = -381.0
 
 [node name="SeedBagButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+visible = false
 margin_left = 0.0
 margin_right = 50.0
 ToolType = 1
 
 [node name="WateringCanButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
-margin_left = 64.0
-margin_right = 114.0
+margin_left = 0.0
+margin_right = 50.0
 icon = ExtResource( 42 )
 ToolType = 2
 
 [node name="NoneButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
-margin_left = 128.0
-margin_right = 178.0
+margin_left = 64.0
+margin_right = 114.0
 icon = ExtResource( 43 )
 
 [node name="HoeButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
-margin_left = 192.0
-margin_right = 242.0
+margin_left = 128.0
+margin_right = 178.0
 icon = ExtResource( 40 )
 ToolType = 3
+
+[node name="ShovelButton" parent="UI/ToolButtons" instance=ExtResource( 41 )]
+margin_left = 192.0
+margin_right = 238.0
+icon = ExtResource( 46 )
+ToolType = 4
 
 [node name="SeedButtons" type="Control" parent="UI"]
 anchor_right = 1.0
@@ -851,6 +964,18 @@ autoplay = true
 [node name="FallMusicPlayer" type="AudioStreamPlayer" parent="SeasonMusicPlayer"]
 stream = ExtResource( 37 )
 autoplay = true
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( 0, 3 )
+centered = false
+script = ExtResource( 44 )
+
+[node name="ShovelInGround" type="Sprite" parent="."]
+visible = false
+position = Vector2( 33, 48 )
+scale = Vector2( 2, 2 )
+z_index = -1
+texture = ExtResource( 45 )
 
 [connection signal="pressed" from="UI/EndDayButton" to="GameManager" method="OnEndDayPressed"]
 

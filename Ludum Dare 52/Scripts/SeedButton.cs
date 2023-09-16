@@ -11,11 +11,20 @@ public class SeedButton : Button
         _def = Crops.GetCropDef(CropType);
 
         GameManager.CurrentCropTypeChanged += SetPressed;
+        GameManager.CurrentToolTypeChanged += SetPressed;
         GameManager.DayPassed += SetEnabled;
         GameManager.MoneyChanged += SetEnabled;
 
         SetPressed();
         SetEnabled();
+    }
+
+    public override void _ExitTree()
+    {
+        GameManager.CurrentCropTypeChanged -= SetPressed;
+        GameManager.CurrentToolTypeChanged -= SetPressed;
+        GameManager.DayPassed -= SetEnabled;
+        GameManager.MoneyChanged -= SetEnabled;
     }
 
     public override void _Pressed()
@@ -35,7 +44,7 @@ public class SeedButton : Button
 
     private void SetPressed()
     {
-        SetPressedNoSignal(GameManager.CurrentCropType == CropType);
+        SetPressedNoSignal(GameManager.CurrentToolType == ToolType.SeedBag && GameManager.CurrentCropType == CropType);
     }
 
     private void SetEnabled()

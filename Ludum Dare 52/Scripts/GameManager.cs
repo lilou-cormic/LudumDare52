@@ -16,7 +16,6 @@ public class GameManager : Node2D
             {
                 _CurrentCropType = value;
 
-                SetCursor();
                 CurrentCropTypeChanged?.Invoke();
             }
         }
@@ -33,7 +32,6 @@ public class GameManager : Node2D
             {
                 _CurrentToolType = value;
 
-                SetCursor();
                 CurrentToolTypeChanged?.Invoke();
             }
         }
@@ -67,27 +65,19 @@ public class GameManager : Node2D
 
     public override void _Ready()
     {
+        Input.MouseMode = Input.MouseModeEnum.Hidden;
+
         CurrentCropType = CropType.Turnip;
         CurrentToolType = ToolType.SeedBag;
+    }
 
-        SetCursor();
+    public override void _ExitTree()
+    {
+        Input.MouseMode = Input.MouseModeEnum.Visible;
     }
     #endregion
 
     #region Methods
-
-    private static void SetCursor()
-    {
-        switch (CurrentToolType)
-        {
-            case ToolType.SeedBag:
-                Input.SetCustomMouseCursor(Crops.GetCropDef(CurrentCropType).Cursor);
-                break;
-            default:
-                Input.SetCustomMouseCursor(Tools.GetToolDef(CurrentToolType)?.Cursor);
-                break;
-        }
-    }
 
     public static void ChangeMoney(int amount)
     {

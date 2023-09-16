@@ -13,7 +13,7 @@ public class CoinBehaviour : Sprite
 
     public override void _Ready()
     {
-        _moveAnimation = new MoveAnimation(this) { Duration = 0.5f, EndGlobalPosition = new Vector2(818, 82), IsLine = true };
+        _moveAnimation = new MoveAnimation(this) { Duration = 0.5f, EndGlobalPosition = new Vector2(793, 82), IsLine = true };
         _moveAnimation.Start();
     }
 

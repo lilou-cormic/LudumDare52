@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/CropBehaviour.cs" type="Script" id=1]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilDry.tres" type="Texture" id=2]
+[ext_resource path="res://Scripts/SoilBehaviour.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/PlotBehaviour.cs" type="Script" id=4]
+[ext_resource path="res://Images/Kenney/Crosshair Pack/PNG/White/crosshair026.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_004.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_001.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/back_002.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilWet.tres" type="Texture" id=9]
+[ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_002.ogg" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="GrassPlot" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Soil" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+script = ExtResource( 3 )
+DrySoilSprite = ExtResource( 2 )
+WetSoilSprite = ExtResource( 9 )
+NeedsPlowing = true
+
+[node name="Crosshair026" type="Sprite" parent="Soil"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="Crop" type="Sprite" parent="."]
+position = Vector2( 0, 18 )
+scale = Vector2( 2, 2 )
+centered = false
+offset = Vector2( -9, -18 )
+script = ExtResource( 1 )
+PlantSound = ExtResource( 6 )
+WateringSound = ExtResource( 10 )
+HarvestSound = ExtResource( 7 )
+ActionDeniedSound = ExtResource( 8 )
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="Crop"]
+
+[connection signal="input_event" from="." to="." method="OnInputEvent"]
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

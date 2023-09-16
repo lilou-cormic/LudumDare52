@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/CropsRes.cs" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Resources/Tools/SeedBag.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Tools/Hoe.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Tools/None.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Tools/Shovel.tres" type="Resource" id=15]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,4 +31,4 @@ script = ExtResource( 10 )
 
 [node name="ToolsRes" type="Node2D" parent="Tools"]
 script = ExtResource( 6 )
-Resources = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ) ]
+Resources = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 15 ) ]

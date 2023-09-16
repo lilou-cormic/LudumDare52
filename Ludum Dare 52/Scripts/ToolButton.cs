@@ -14,7 +14,10 @@ public class ToolButton : Button
     public override void _Toggled(bool buttonPressed)
     {
         if (buttonPressed)
+        {
             GameManager.CurrentToolType = ToolType;
+            GameManager.CurrentCropType = CropType.None; 
+        }
 
         SetPressed();
     }
