@@ -1,24 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/CropBehaviour.cs" type="Script" id=1]
-[ext_resource path="res://Prefabs/Soil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Soil.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PlotBehaviour.cs" type="Script" id=4]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_004.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_001.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/back_002.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_002.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilDry.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="GrassPlot" type="StaticBody2D"]
+[node name="ReadyPlot" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Soil" parent="." instance=ExtResource( 2 )]
+[node name="Soil" parent="." instance=ExtResource( 3 )]
+texture = ExtResource( 11 )
+SoilState = 2
 
 [node name="Crop" type="Sprite" parent="."]
 position = Vector2( 0, 18 )

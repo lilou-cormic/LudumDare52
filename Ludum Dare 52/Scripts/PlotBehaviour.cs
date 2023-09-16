@@ -25,7 +25,7 @@ public class PlotBehaviour : StaticBody2D
 
     private void SoilBehaviour_StateChanged()
     {
-        _cropBehaviour.SetActive(!_soilBehaviour.NeedsPlowing);
+        _cropBehaviour.SetActive(_soilBehaviour.IsPlantable);
     }
 
     #endregion
@@ -43,13 +43,18 @@ public class PlotBehaviour : StaticBody2D
                     _cropBehaviour.Water();
                     break;
 
-                case ToolType.Shovel:
+                case ToolType.Hoe:
                     _soilBehaviour.Plow();
                     _cropBehaviour.PlantOrHarvest();
                     break;
 
+                case ToolType.Shovel:
+                    _soilBehaviour.Shovel();
+                    _cropBehaviour.PlantOrHarvest();
+                    break;
+
                 default:
-                    if (!_soilBehaviour.NeedsPlowing)
+                    if (_soilBehaviour.IsPlantable)
                         _cropBehaviour.PlantOrHarvest();
                     break;
             }

@@ -1,14 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/CropBehaviour.cs" type="Script" id=1]
-[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilDry.tres" type="Texture" id=2]
-[ext_resource path="res://Scripts/SoilBehaviour.cs" type="Script" id=3]
+[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilRaw.tres" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Soil.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PlotBehaviour.cs" type="Script" id=4]
-[ext_resource path="res://Images/Kenney/Crosshair Pack/PNG/White/crosshair026.png" type="Texture" id=5]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_004.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_001.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/back_002.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Images/Kenney/Topdown Shooter (Pixel)/SoilWet.tres" type="Texture" id=9]
 [ext_resource path="res://Sounds/Kenney/Audio/Interface Sounds/Audio/drop_002.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,16 +19,9 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Soil" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
+[node name="Soil" parent="." instance=ExtResource( 3 )]
 texture = ExtResource( 2 )
-script = ExtResource( 3 )
-DrySoilSprite = ExtResource( 2 )
-WetSoilSprite = ExtResource( 9 )
-
-[node name="Crosshair026" type="Sprite" parent="Soil"]
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 5 )
+SoilState = 1
 
 [node name="Crop" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
